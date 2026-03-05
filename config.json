@@ -1,0 +1,118 @@
+{
+  "_comment": "Central config for Crypto Algo Bot — Edit here, changes reflect everywhere",
+
+  "account": {
+    "balance": 10000,
+    "currency": "INR",
+    "currency_symbol": "₹",
+    "usd_inr_rate": 84.0,
+    "exchange": "binance",
+    "testnet": true, 
+    "mode": "paper",
+    "_mode_options": ["paper", "live"],
+    "api_key": "",           
+    "api_secret": ""        
+  },
+
+  "risk": {
+    "risk_per_trade_pct": 0.25,
+    "max_loss_day_pct": 3.0,
+    "max_loss_week_pct": 6.0,
+    "max_trades_per_day": 5,
+    "max_open_positions": 2,
+    "leverage": 5,
+    "_leverage_note": "Start at 5x. Only increase after 3 profitable months"
+  },
+
+  "targets": {
+    "rr_ratio_min": 1.5,
+    "rr_ratio_max": 2.0,
+    "profit_per_trade_min_inr": 37.50,
+    "profit_per_trade_max_inr": 50.00,
+    "monthly_return_target_pct": 7.0,
+    "win_rate_target_pct": 55.0
+  },
+
+  "scaling": {
+    "trigger_pct": 10.0,
+    "_scaling_note": "Recalculate risk per trade every time balance grows by 10%",
+    "income_withdrawal_start_balance": 45000,
+    "_income_note": "Start withdrawing only when balance hits ₹45,000 (Month 18+)"
+  },
+
+  "circuit_breakers": {
+    "stop_trading_on_daily_limit": true,
+    "stop_trading_on_weekly_limit": true,
+    "stop_trading_on_max_trades": true,
+    "resume_after": "next_session",
+    "_resume_options": ["next_session", "next_day", "next_week"]
+  },
+
+  "trading": {
+    "timeframe": "15m",
+    "_timeframe_note": "15m chart + 5x leverage = ~1% stop loss = ₹25 risk. Perfect fit.",
+    "pairs": [
+      "BTC/USDT",
+      "ETH/USDT",
+      "SOL/USDT"
+    ],
+    "order_type": "limit",
+    "_order_type_options": ["limit", "market"],
+    "_order_note": "Use limit orders to avoid taker fees where possible",
+    "slippage_buffer_pct": 0.05
+  },
+
+  "fees": {
+    "maker_fee_pct": 0.01,
+    "taker_fee_pct": 0.04,
+    "_fee_note": "Bybit fees. Use limit orders to get maker fee rate."
+  },
+
+  "notifications": {
+    "telegram_enabled": true,
+    "telegram_bot_token": "8599560994:AAGWT6z1zgy3ceGD_KoIWXlVCK3bkPr_k0E",
+    "telegram_chat_id": "1242525417",
+    "telegram_webhook": "",        
+    "notify_on_trade_open": true,
+    "notify_on_trade_close": true,
+    "notify_on_circuit_breaker": true,
+    "notify_on_daily_summary": true,
+    "notify_hourly_update": true    
+  },
+
+  "logging": {
+    "log_level": "INFO",
+    "_log_levels": ["DEBUG", "INFO", "WARNING", "ERROR"],
+    "log_to_file": true,
+    "log_file": "logs/bot.log",
+    "trade_log_file": "logs/trades.csv"
+  },
+
+  "strategy": {
+    "active": "ema_crossover",
+    "_available": [
+      "ema_crossover",
+      "rsi_mean_reversion",
+      "opening_range_breakout"
+    ]
+  },
+
+  "backtesting": {
+    "enabled": true,
+    "data_source": "binance",
+    "_data_source_options": ["binance", "bybit", "csv"],
+    "days_history": 90,
+    "_days_note": "90 days = ~3 months of data for reliable backtest",
+    "cache_data": true,
+    "cache_dir": "data/cache",
+    "slippage_pct": 0.05,
+    "_slippage_note": "0.05% slippage simulates market impact on entry/exit",
+    "commission_pct": 0.04,
+    "_commission_note": "Use taker fee for conservative estimate",
+    "results_dir": "results/",
+    "generate_charts": true,
+    "export_trades_csv": true,
+    "compare_all_strategies": false,
+    "_compare_note": "When true, backtest all strategies and compare results"
+  }
+}

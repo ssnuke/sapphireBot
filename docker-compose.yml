@@ -1,0 +1,51 @@
+services:
+  algo-trader:
+    env_file: .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: algo-trader-bot
+    restart: always
+    environment:
+      # Exchange credentials (loaded from .env or host env)
+      - BYBIT_API_KEY
+      - BYBIT_API_SECRET
+
+      # Bot config
+      - CONFIG_PATH=/app/config.json
+      - PYTHONUNBUFFERED=1
+
+      # Telegram notifications (loaded from .env or host env)
+      - TELEGRAM_BOT_TOKEN
+      - TELEGRAM_CHAT_ID
+    
+    volumes:
+      # Mount config for easy updates without rebuild
+      - ./config.json:/app/config.json
+      
+      # Persist data, logs, results
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./results:/app/results
+    
+    # Resource limits (adjust as needed)
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+    
+    # Logging
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    
+    # Network (optional, if you have other services)
+    networks:
+      - default
+
+networks:
+  default:
+    driver: bridge

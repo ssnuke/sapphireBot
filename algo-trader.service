@@ -1,0 +1,32 @@
+[Unit]
+Description=Algo Trader Bot - 24/7 Crypto Trading
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=algo
+WorkingDirectory=/home/algo/algo_trader
+Environment="PATH=/home/algo/algo_trader/venv/bin"
+Environment="BYBIT_API_KEY=YOUR_API_KEY_HERE_OR_SET_IN_SYSTEMCTL"
+Environment="BYBIT_API_SECRET=YOUR_API_SECRET_HERE_OR_SET_IN_SYSTEMCTL"
+ExecStart=/home/algo/algo_trader/venv/bin/python3 /home/algo/algo_trader/main.py
+
+# Restart on failure
+Restart=always
+RestartSec=10
+
+# Logging
+StandardOutput=append:/var/log/algo_trader/bot.log
+StandardError=append:/var/log/algo_trader/bot.log
+
+# Resource limits
+MemoryLimit=512M
+CPUQuota=100%
+
+# Graceful shutdown
+KillMode=mixed
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target

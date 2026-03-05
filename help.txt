@@ -1,0 +1,9 @@
+Account Balance     : ₹10,000
+Risk per Trade      : 0.25% = ₹25
+R:R Ratio           : 1.5:1 to 2:1
+Profit per Trade    : ₹37.50 (1.5:1) → ₹50 (2:1)
+Trades per Day      : 3–5
+Win Rate            : 55% (realistic target)
+Exchange            : Bybit / Binance Futures
+Leverage            : 5x (conservative start)
+Swing (15m chart)1%5x₹25✅ Perfect
