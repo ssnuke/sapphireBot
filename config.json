@@ -6,12 +6,12 @@
     "currency": "INR",
     "currency_symbol": "₹",
     "usd_inr_rate": 84.0,
-    "exchange": "binance",
+    "exchange": "bybit",
     "testnet": true, 
     "mode": "paper",
     "_mode_options": ["paper", "live"],
-    "api_key": "",           
-    "api_secret": ""        
+    "api_key": "Ucrzk9MFjJJiCBeU8h",           
+    "api_secret": "TMONIQjPsiiw4iPwzozFOcpxvtOrmIyU1x1v"        
   },
 
   "risk": {

@@ -14270,3 +14270,22 @@ ccxt.base.errors.AuthenticationError: binance {"code":-2014,"msg":"API-key forma
 2026-03-05 05:36:23 | INFO     | main | 📊 Daily Summary | Trades: 0 | PnL: ₹+0.00 | Balance: ₹10000.00 | Open: 0 (Unrealized: ₹+0.00) | Remaining: 5 trades, ₹300.00 loss room
 2026-03-05 05:36:23 | INFO     | main | 💤 Sleeping 15 mins until next candle...
 
+2026-03-05 06:07:30 | INFO     | root | 🤖 Bot logger initialized
+2026-03-05 06:07:30 | INFO     | main | ================================================================================
+2026-03-05 06:07:30 | INFO     | main | 🤖 Crypto Algo Bot Starting (v2 with Live Trading)
+2026-03-05 06:07:30 | INFO     | main |    Mode         : PAPER
+2026-03-05 06:07:30 | INFO     | main |    Balance      : ₹10,000.00
+2026-03-05 06:07:30 | INFO     | main |    Strategy     : ema_crossover
+2026-03-05 06:07:30 | INFO     | main |    Pairs        : BTC/USDT, ETH/USDT, SOL/USDT
+2026-03-05 06:07:30 | INFO     | main |    Timeframe    : 15m
+2026-03-05 06:07:30 | INFO     | main |    Risk/Trade   : ₹25.00
+2026-03-05 06:07:30 | INFO     | main |    Max Loss/Day : ₹300.00
+2026-03-05 06:07:30 | INFO     | main |    Leverage     : 5x
+2026-03-05 06:07:30 | INFO     | main | ================================================================================
+2026-03-05 06:07:44 | INFO     | main | ✅ Connected to BYBIT (paper mode)
+2026-03-05 06:07:44 | INFO     | main | ✅ Connected to BYBIT (paper mode)
+2026-03-05 06:07:44 | INFO     | main | 🔁 Bot running. Checking every 15 minutes per candle close.
+
+2026-03-05 06:07:47 | INFO     | main | 📊 Daily Summary | Trades: 0 | PnL: ₹+0.00 | Balance: ₹10000.00 | Open: 0 (Unrealized: ₹+0.00) | Remaining: 5 trades, ₹300.00 loss room
+2026-03-05 06:07:47 | INFO     | main | 💤 Sleeping 15 mins until next candle...
+
